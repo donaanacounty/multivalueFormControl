@@ -1,9 +1,4 @@
-# multivalueFormControl
-A form control for Alfresco share to edit multi value text fields.
-
-
-
-# Alfresco Multi Value Field Form Control Template
+# multivalueFormControl: Alfresco Multi Value Field Form Control Template
 
 Properties within the Alfresco model can be defined to hold multiple values.  This can be very useful if you want a many-to-one relationship.  Unfortunately, the Alfresco Share web GUI doesn't provide a very useful control to manipulate multi-valued fields.  It only provides a simple text input. Any commas in the text input will become separators and the content between the commas will will be interpreted as the values.  So entering "a,c,b" (without quotes) into the text field will be interpreted as three values "a", "b" and "c".
 
