@@ -16,7 +16,7 @@ Usage is easy.  First you have to install the amp into your share.war.  Second d
 ```
 <property name="co:someCoList">
   <type>d:text</type>
-  <multiple>false</multiple>
+  <multiple>true</multiple>
 </property>
 ```
 
