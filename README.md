@@ -6,7 +6,7 @@ This Form control template takes advantage of this feature.  Rather than trying 
 
 In many ways, this is a bit of a hack, but it works, until Alfresco decides to give us a proper form control for multiple values.  It has three main limitations at the moment.
 
-- First, it only works with text fields.  No date pickers, or other alfresco controls.  Also there is no content validation, so if you use it for d:int, it will happily attempt to submit.  I don't know how it will behave.
+- First, it only works with text fields.  No date pickers, or other alfresco controls.  Also there is no content validation, so if you use it for d:int, it will happily attempt to submit.  I don't know how it will behave. EDIT: it actually seems to work for multi valued d:int.  There are some layout issues.
 - Second, I have done no testing with error handling.  So, if you put this on a mandatory field and submit empty I don't know what happens.  If you put it on an int, and type text, I don't know what happens.
 - Finally, because this is only a form template, and (aside from the FTL parts) runs on the client browser, commas are used for divisions between values on submission.  You don't see them but they are applied automatically to the hidden form field.  This means that you cannot have commas in your data.  There may be a way around that by encoding the data before submission, but so far I haven't found it so instead I don't allow the user to type commas.  I use JS event handlers on all the form fields to intercept key strokes and stop all commas.  This seemed a better solution than allowing the typing of commas and stripping them out behind the users back.
 
@@ -25,3 +25,9 @@ Next when setting up the form (probably in share-config-custom.xml) tell share t
 ```
 <control template="/org/donaanacounty/components/form/controls/multiple.ftl" />
 ```
+
+Some of the possible parameters:
+- styleClass: applies a class to the visible text boxes
+- style: applies a style tag to the visible text boxes
+- maxLength: the max amount of text that can be entered into each box
+- size: the size of the field (this doesn't seem to work)
