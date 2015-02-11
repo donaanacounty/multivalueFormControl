@@ -93,6 +93,7 @@
             newPlus.setAttribute('id', 'plus-${fieldHtmlId}');
             newPlus.setAttribute('src', '${url.context}/res/components/form/images/plus-icon.png');
             newPlus.setAttribute('alt', 'Add another');
+            newPlus.setAttribute('style', 'vertical-align: middle;margin-left:5px;');
 
             lastDiv.appendChild(newPlus);
 
@@ -144,7 +145,7 @@
 					<#if field.control.params.style??>+ " style='${field.control.params.style}'"</#if>
 					<#if field.control.params.maxLength??>+ " maxlength='${field.control.params.maxLength}'"<#else>+ " maxlength='1024'"</#if>
                     <#if field.control.params.size??>+ " size='${field.control.params.size}'"</#if>
-					+ " /><img class='icon' id='minus-"+index+"-${fieldHtmlId}' src='${url.context}/res/components/form/images/minus-icon.png' alt='Delete this input' onClick='deleteField(\""
+					+ " /><img class='icon' style='vertical-align: middle;margin-left:5px;' id='minus-"+index+"-${fieldHtmlId}' src='${url.context}/res/components/form/images/minus-icon.png' alt='Delete this input' onClick='deleteField(\""
 					+ hiddenInputId + "\", \"div" + hiddenInputId + '___'
 					+ index + "\", \"" + divName + "\");' />";
 			document.getElementById(divName).appendChild(newdiv);
