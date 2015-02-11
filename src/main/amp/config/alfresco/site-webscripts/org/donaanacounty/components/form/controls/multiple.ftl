@@ -1,17 +1,7 @@
 <#include "/org/alfresco/components/form/controls/common/utils.inc.ftl" />
-<#if field.control.params.size??><#assign size=field.control.params.size><#else><#assign size=5></#if>
 
-<#if field.control.params.optionSeparator??>
-   <#assign optionSeparator=field.control.params.optionSeparator>
-<#else>
-   <#assign optionSeparator=",">
-</#if>
-<#if field.control.params.labelSeparator??>
-   <#assign labelSeparator=field.control.params.labelSeparator>
-<#else>
-   <#assign labelSeparator="|">
-</#if>
 
+<#assign optionSeparator=",">
 <#assign fieldValue=field.value>
 
 <#if fieldValue?string == "" && field.control.params.defaultValueContextProperty??>
