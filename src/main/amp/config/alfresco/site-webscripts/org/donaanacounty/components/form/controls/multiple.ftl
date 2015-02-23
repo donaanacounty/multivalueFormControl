@@ -132,7 +132,7 @@
 					+ index
 					+ "'"
 					<#if field.control.params.styleClass??>+ " class='${field.control.params.styleClass}'"</#if>
-					<#if field.control.params.style??>+ " style='${field.control.params.style}'"</#if>
+					<#if field.control.params.style??>+ " style='${field.control.params.style}'"<#else>+ " style='margin-bottom: 4px;'"</#if>
 					<#if field.control.params.maxLength??>+ " maxlength='${field.control.params.maxLength}'"<#else>+ " maxlength='1024'"</#if>
                     <#if field.control.params.size??>+ " size='${field.control.params.size}'"</#if>
 					+ " /><img class='icon' style='vertical-align: middle;margin-left:5px;' id='minus-"+index+"-${fieldHtmlId}' src='${url.context}/res/components/form/images/minus-icon.png' alt='Delete this input' onClick='deleteField(\""
