@@ -61,7 +61,7 @@
 
 		var hiddenInputId = "${fieldHtmlId}";
 		var fieldDataDivId = "field-data-${fieldHtmlId}";
-
+		var firstRun = true;
 
 
 		function WindowLoad() {
@@ -111,7 +111,9 @@
 		function deleteField(hiddenInputId, divName, fieldDataDivId) {
 			var count = getCount(fieldDataDivId);
 			var el = document.getElementById(divName);
-			el.remove();
+
+			el.parentNode.removeChild(el);
+
 			// Get removed index
 			var index = divName.split('___');
 			index = index[1];
@@ -135,9 +137,8 @@
 					<#if field.control.params.style??>+ " style='${field.control.params.style}'"<#else>+ " style='margin-bottom: 4px;'"</#if>
 					<#if field.control.params.maxLength??>+ " maxlength='${field.control.params.maxLength}'"<#else>+ " maxlength='1024'"</#if>
                     <#if field.control.params.size??>+ " size='${field.control.params.size}'"</#if>
-					+ " /><img class='icon' style='vertical-align: middle;margin-left:5px;' id='minus-"+index+"-${fieldHtmlId}' src='${url.context}/res/components/form/images/minus-icon.png' alt='Delete this input' onClick='deleteField(\""
-					+ hiddenInputId + "\", \"div" + hiddenInputId + '___'
-					+ index + "\", \"" + divName + "\");' />";
+					+ " /><img class='icon' style='vertical-align: middle;margin-left:5px;' id='minus-"+index+"-${fieldHtmlId}' src='${url.context}/res/components/form/images/minus-icon.png' alt='Delete this input' "
+					+ " />";
 			document.getElementById(divName).appendChild(newdiv);
 
             // find text field, attach oninput event listener
@@ -168,6 +169,9 @@
 
             relocatePlus();
 
+			if (!firstRun) {
+				input.focus();
+			}
 		};
 
 
@@ -206,7 +210,7 @@
 				var el = document.body.querySelector('#' + fieldDataDivId);
 				var matches = el.querySelectorAll('div');
 				for (var j = 0; j < matches.length; j++) {
-					matches[j].remove();
+					matches[j].parentNode.removeChild(matches[j]);
 				}
 
 				for (var i = 0; i < blocks.length; i++) {
@@ -216,6 +220,8 @@
 			} else {
 				addInput(fieldDataDivId, 0, hiddenInputId);
 			}
+
+			firstRun = false;
 		};
 
         var reps = 0;
